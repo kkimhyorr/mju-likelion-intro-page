@@ -1,3 +1,4 @@
+import "./App.css";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import { React, useState, useEffect, createContext } from "react";
@@ -14,8 +15,8 @@ function App() {
     localStorage.setItem("UserInfo", JSON.stringify(UserInfo));
   });
   return isLogin ? (
-    <div className={isDark ? "darkMode" : ""}>
-      <darkModeContext.Provider value={(isDark, setIsDark)}>
+    <div className={isDark ? "dark" : ""}>
+      <darkModeContext.Provider value={{ isDark, setIsDark }}>
         <Main dark={setIsDark} />
       </darkModeContext.Provider>
     </div>

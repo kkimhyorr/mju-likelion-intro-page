@@ -4,7 +4,6 @@ import "./Login.css";
 const Login = (props) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  console.log(props);
 
   const handleId = (e) => {
     setId(e.target.value);

@@ -1,5 +1,3 @@
-import "./Main.css";
-
 import Aboutme from "./Aboutme";
 import data from "./Data.json";
 import Home from "./Home";

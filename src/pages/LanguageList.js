@@ -6,9 +6,7 @@ const LanguageList = (props) => {
       <h2>Available Language</h2>
 
       {props.data.AvailableLanguage.map((data, index) => (
-        <div>
-          <Language data={data} key={index} />
-        </div>
+        <Language data={data} key={index} />
       ))}
     </div>
   );
