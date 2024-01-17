@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Main from "./pages/Main";
+import Login from "./pages/Login";
+import { React, useState, useEffect, createContext } from "react";
+
+import { UserInfo } from "./pages/UserInfo";
+
+export const darkModeContext = createContext(false);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [isLogin, setIsLogin] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("UserInfo", JSON.stringify(UserInfo));
+  });
+  return isLogin ? (
+    <div className={isDark ? "dark" : ""}>
+      <darkModeContext.Provider value={{ isDark, setIsDark }}>
+        <Main dark={setIsDark} />
+      </darkModeContext.Provider>
     </div>
+  ) : (
+    <Login login={setIsLogin} />
   );
 }
 
